@@ -2,7 +2,7 @@
 #   Programming Assignment 5
 #       Prob-1.py
 
-# <YOUR NAME>
+# Robert Ballenger
 
 # IPO
 
