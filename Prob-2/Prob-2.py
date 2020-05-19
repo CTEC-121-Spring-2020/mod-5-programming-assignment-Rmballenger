@@ -68,7 +68,12 @@ def changeDue(costOfItem, amountPaid):
     nickelsReturned = minusDimes / nickel
     minusNickels = minusDimes - (int(nickelsReturned) * nickel)
 
+    # Here I had a bug where if the amount of 4.99 and payment of 10 should have changed 5.01 and issued a five and penny. However it was losing the penny as it was leaving a remainder of ~.9 of a penny. This of course wouldn't do so I had to make sure it properly rounded to 1 to give the penny.
     penniesReturned = minusNickels / penny
+    if penniesReturned > 0 and penniesReturned < 1:
+        penniesReturned = 1
+    minusPennies = minusNickels - (int(penniesReturned) * penny)
+    
 
     # Last we create a new function which a WHOLE BUNCH of variables passed with it.
     outputFunction(costOfItem, amountPaid, totalDue, int(hundredsReturened), int(fiftiesReturned), int(twentysReturned), int(tensReturned), int(fivesReturned),
@@ -129,6 +134,6 @@ def outputFunction(costOfItem, amountPaid, totalDue, hundredsReturened, fiftiesR
         print(penniesReturned, " pennies")
     else:
         pass
-
+    
 
 main()
